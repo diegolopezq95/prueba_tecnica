@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Start a New Greetings{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Greetings</a></li>
+    <li class="breadcrumb-item active">New Greeting</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_subject">Name</label>
+            <input type="text" class="form-control" id="id_subject" name="name">
+        </div>
+        <div class="form-group">
+            <label for="id_subject">Position</label>
+            <input type="text" class="form-control" id="id_subject" name="position">
+        </div>
+        <div class="form-group">
+            <label for="id_message">Greeting</label>
+            <textarea class="form-control" id="id_message" name="greeting" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Post</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Some greetings</li>
+{% endblock %}
+
+{% block content %}
+    <div class="mb-4">
+    <a href="{% url 'new_greeting' %}" class="btn btn-primary">New Greeting</a>
+  </div>
+
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Senior Developer Greeting</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for senior in seniors %}
+            <tr>
+              <td>
+                {{ senior.name }}
+                <small class="text-muted d-block">{{ senior.position }}</small>
+              </td>
+              <td>
+                  <small class="text-muted d-block">{{ senior.greeting }}</small>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
